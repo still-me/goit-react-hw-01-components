@@ -6,7 +6,7 @@ import randomColor from "./randomColor";
 
 const Statistics = ({ title, stats }) => (
   <section className={styles.statistics}>
-    <h2 className={styles.title}>{title}</h2>
+    {title && <h2 className={styles.title}>{title}</h2>}
 
     <ul className={styles.statList}>
       {stats.map(({ id, label, percentage }) => (
@@ -33,7 +33,7 @@ StatisticsItem.propTypes = {
 };
 
 Statistics.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   stats: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
